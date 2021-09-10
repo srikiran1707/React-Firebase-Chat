@@ -29,8 +29,8 @@ function App() {
   const[user]=useAuthState(auth);
   return (
     <div className="App">
-     <header>
-        <h1>⚛️💬VCHAT</h1>
+     <header >
+        <h1>⚛️🔥💬VCHAT</h1>
         <SignOut />
      </header>
      <section>
@@ -53,7 +53,7 @@ function SignIn(){
 
 function SignOut(){
   return auth.currentUser &&(
-<button className="sign-out" onClick={()=>auth.signOut}>Sign Out</button>
+<button className="sign-out" onClick={()=>auth.signOut}>Exit</button>
   )
 }
 
@@ -98,9 +98,9 @@ function ChatRoom(){
 
 function ChatMessage(props){
   const {text,uid,photoURL} = props.message;
-  const messageClass = uid === auth.currentUser.uid ? 'sent' : 'received';
+  const messageClass = uid === auth.currentUser.uid ? 'message sent' : 'message received';
   return (<>
-    <div className={'message ${messageClass}'}>
+    <div className={messageClass}>
       <img src ={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'}/>
       <p>{text}</p>
     </div>
